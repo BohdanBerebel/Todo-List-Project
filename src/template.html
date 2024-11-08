@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+</head>
+<body>
+    <dialog>
+        <form action="">
+            <img src="./imgs/close.svg" alt="">
+            <ul>
+                <li>
+                    <label for="text">Title: </label>
+                    <input id="text" type="text" required>
+                </li>
+                <li>
+                    <label id="description" for="description1">Description: </label>
+                    <textarea id="description1"></textarea>
+                </li>
+                <li>
+                    <label for="date">Date: </label>
+                    <input id="date" type="date" required>
+                </li>
+                <li>
+                    <label for="priority">Choose priority:</label>
+                    <select id="priority">
+                        <option value="High">High</option>
+                        <option value="Mediocre" selected>Mediocre</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </li>
+            </ul>
+            <button type="button">Accept</button>
+        </form>
+    </dialog>   
+    <div>
+        <nav>
+            <div id="user-info">
+                <div>
+                    <img id="user-photo" src="./imgs/User-photo.png" alt="user photo">
+                    <p>Stacy</p>
+                </div>
+                <div>
+                    <img src="./imgs/alt-bell-svgrepo-com.svg" alt="jingle">
+                    <img src="./imgs/view-compact.svg" alt="positioning button">
+                </div>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <img src="./imgs/plus.svg" alt="plus">
+                        <span>Add task</span>
+                    </li>
+                    <li>
+                        <img src="./imgs/alt-lens-svgrepo-com.svg" alt="lens">
+                        <span>Search</span>
+                    </li>
+                    <li>
+                        <img src="./imgs/inbox.svg" alt="inbox">
+                        <span>Inbox</span>
+                    </li>
+                    <li>
+                        <img src="./imgs/calendar-today.svg" alt="today">
+                        <span>Today</span>
+                    </li>
+                    <li>
+                        <img src="./imgs/check.svg" alt="completed">
+                        <span>Completed</span>
+                    </li>
+                </ul>
+            </div>
+            <div id="projects">
+                <!-- <img src="" alt=""> -->
+                <span>My Projects</span>
+            </div>     
+        </nav>
+        <main>
+            <div id="tasks" class="free">
+                <h2>So far, you are free</h2>
+            </div>
+
+
+        </main>
+        
+    </div>
+
+</body>
+</html>

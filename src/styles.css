@@ -1,0 +1,178 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: grey;
+    min-height: 98vh;
+    background-image: url("./imgs/walls.jpg");
+}
+
+body > div {
+    padding: 1rem;
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100%;
+}
+
+nav {
+    background-color: yellow;
+    padding: 1rem;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+nav > div {
+    padding: 1rem 0;
+} 
+
+#user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+#user-info :nth-child(1){
+    display: flex;
+    justify-content: start;
+    gap: 1rem;
+    font-size: 1.5em;
+    font-weight: 700;
+    align-items: center;
+}
+
+#user-info :nth-child(2){
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#user-photo {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 100%;
+    border: 2px lightcoral solid
+}
+
+#user-info :nth-child(2) img {
+    width: 1.5rem;
+    border-radius: 100%;
+}
+
+li {
+    list-style-type: none;
+}
+
+nav li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.7rem 0;
+    font-size: 1.5rem;
+}
+
+li img {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+#projects {
+    font-size: 1.5rem;
+}
+
+main {
+    background-color: bisque;
+}
+
+#tasks {
+    padding: 2em;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(5rem, 1fr));
+}
+
+.free {
+    justify-content: center;
+    align-items: center;
+}
+
+dialog {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    max-height: 50vh;
+    max-width: 50vw;
+    background-color: beige;
+    font-size: 1.5rem;
+    overflow: auto;
+    border-radius: 1rem;
+}
+
+dialog li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.7rem 0;
+    font-size: 2rem;
+}
+
+dialog li:nth-of-type(2) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+dialog input:not(input[type="date"]),
+textarea {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+dialog input {
+    height: 2.2rem;
+    font-size: 1.5rem;
+    min-width: 0;
+}
+
+textarea {
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+dialog img {
+    height: 1.2rem;
+    width: 1.2rem;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+dialog select {
+    height: 2.2rem;
+    font-size: 1.5rem;
+    min-width: 0;
+}
+
+dialog button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0;
+    width: 10rem;
+    color: black;
+    background-color:khaki;
+}
