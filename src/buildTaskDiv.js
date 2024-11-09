@@ -1,46 +1,58 @@
 import {tasksArray} from "./addTask"
+import {addDeleteButton} from "./deleteTask";
 export {publishAllTasks}
 
-const tasks = document.querySelector("#tasks");
-const header = document.querySelector("#tasks > h2");
+const main = document.querySelector("main");
 
 function meanHeader() {
     let tasksQuantity = tasksArray.length;
-    header.textContent = `You have ${tasksQuantity} tasks in general.`
-    if (tasksQuantity == 1) header.textContent = `You have ${tasksQuantity} task in general.`
+    const newHeader = document.createElement("h2");
+    newHeader.textContent = `You have ${tasksQuantity} tasks in general.`
+    if (tasksQuantity == 1) newHeader.textContent = `You have ${tasksQuantity} task in general.`
     if (tasksQuantity === 0) {
-        header.textContent = 'So far, you are free';
-        tasks.classList = "free"
+        newHeader.textContent = 'So far, you are free';
     }
-    tasks.classList = "";
+    main.appendChild(newHeader);
 }
 
 function publishTask(obj) {
+    
     const div = document.createElement('div');
-    tasks.appendChild(div);
+    main.appendChild(div);
+    div.classList.add("task");
     
     const header = document.createElement('h3');
     header.textContent = obj.title;
     div.appendChild(header);
     
     const description = document.createElement('p');
-    description.textContent = obj.description;
+    description.textContent = `Description: ${obj.description}`;
     div.appendChild(description);
 
     const day = document.createElement('p');
-    day.textContent = obj.dueDate;
+    day.textContent = `Date: ${obj.dueDate}`;
     div.appendChild(day);
 
     const priority = document.createElement('p');
-    priority.textContent = obj.priority;
+    priority.textContent = `Priority: ${obj.priority}`;
     div.appendChild(priority);
+    
+    if(obj.priority == "High") {
+        div.classList.add("highPriopity");
+    } else if(obj.priority == "Low") {
+        div.classList.add("lowPriopity");
+    } else {
+        div.classList.add("mediocrePriopity")
+    }
+    
 }
 
 const publishAllTasks = function() {
+    main.innerHTML = "";
     meanHeader();
     tasksArray.forEach(element => {
-    publishTask(element)
+        publishTask(element)
     })
+    addDeleteButton();
+    
 }
-
-publishAllTasks();

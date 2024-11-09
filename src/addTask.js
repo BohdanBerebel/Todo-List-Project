@@ -1,5 +1,6 @@
-export {tasksArray}
+export {tasksArray, Task}
 import { publishAllTasks } from "./buildTaskDiv";
+import {addDeleteButton} from "./deleteTask"
 
 const addingNewTaskButton = document.querySelector("nav > div li:nth-of-type(1)");
 const dialogue = document.querySelector("dialog");

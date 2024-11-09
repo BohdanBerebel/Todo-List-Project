@@ -83,13 +83,38 @@ li img {
     width: 1.2rem;
 }
 
+#projectsMenu img {
+    height: 2rem;
+    width: 2rem;  
+}
+
 ul {
     padding: 0;
     margin: 0;
 }
 
-#projects {
+#projectsMenu > :first-child {
     font-size: 1.5rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#ProjectsList h4,
+#ProjectsList p {
+    margin: 0;
+}
+
+.project {
+    padding: 1rem;
+}
+
+.projectBig {
+    padding: 0.5rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 2px solid rgb(221, 76, 250);
 }
 
 main {
@@ -102,9 +127,27 @@ main {
     grid-template-rows: repeat(auto-fit, minmax(5rem, 1fr));
 }
 
-.free {
-    justify-content: center;
-    align-items: center;
+.task button {
+    margin-bottom: 1rem;
+}
+
+.highPriopity{
+    border-top: red 4px solid;
+    border-bottom:  red 4px solid;
+}
+
+.lowPriopity {
+    border-top: green 4px solid;
+    border-bottom:  green 4px solid;
+}
+
+.mediocrePriopity {
+    border-top: yellow 4px solid;
+    border-bottom:  yellow 4px solid;
+}
+
+.project * {
+    margin: 0.5rem;
 }
 
 dialog {
