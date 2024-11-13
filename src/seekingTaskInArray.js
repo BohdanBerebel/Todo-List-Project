@@ -12,7 +12,7 @@ function pickingTaskFromArray(task) {
         let description = task.children[1].textContent.slice(13);
 
         if( task.children[0].textContent === item.title && description === item.description &&
-            date === item.dueDate && priority === item.priority) {
+            date === `${item.dueDate}` && priority === item.priority) {
             let index = tasksArray.indexOf(item);
             return {"item": item, "index": index};
         }

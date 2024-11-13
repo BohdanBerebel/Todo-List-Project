@@ -1,6 +1,6 @@
 import {tasksArray} from "./addTask"
 import {addDeleteButton} from "./deleteTask";
-export {publishAllTasks}
+export {publishAllTasks, publishTask}
 
 const main = document.querySelector("main");
 
@@ -17,6 +17,8 @@ function meanHeader() {
 
 function publishTask(obj) {
     
+    const main = document.querySelector("main");
+
     const div = document.createElement('div');
     main.appendChild(div);
     div.classList.add("task");

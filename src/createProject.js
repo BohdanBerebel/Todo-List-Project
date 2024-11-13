@@ -1,4 +1,4 @@
-export {Projects}
+export {Projects, addTaskToProject}
 
 class Projects {
     
@@ -26,4 +26,5 @@ new Projects("New Year");
 new addTaskToProject(Projects.showProjects()[0], "Invite guests", "Go over all of them", "12-30-2024", "Low");
 new addTaskToProject(Projects.showProjects()[0], "Prepare feast", "at least 5 dishes", "12-30-2024", "Mediocre");
 new Projects("Christmas");
-console.log(Projects.showProjects())
+// console.log(Projects.showProjects())
+

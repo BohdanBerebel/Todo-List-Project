@@ -110,6 +110,16 @@ ul {
     padding: 1rem;
 }
 
+#addNewProject {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.inputMenu {
+    margin: 20vh auto;
+}
+
 .projectBig {
     padding: 0.5rem;
     margin: 1rem;

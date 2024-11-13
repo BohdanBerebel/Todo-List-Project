@@ -1,11 +1,14 @@
 import {Projects} from "./createProject"
 import {publishAllTasks} from "./buildTaskDiv"
+import {addDeleteButton} from "./deleteTask";
 export {addItemsToProjectsList, buildProjectPage}
 
 const projectsArray = Projects.showProjects();
 
 const addItemsToProjectsList = function() {
     const projectsList = document.querySelector("#ProjectsList");
+
+    ProjectsList.innerHTML = "";
 
     projectsArray.forEach(element => {
         

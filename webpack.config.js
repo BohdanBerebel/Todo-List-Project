@@ -1,6 +1,8 @@
-// webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require ("webpack");
+
+const locales = ["en-GB"];
 
 module.exports = {
   mode: "development",
@@ -18,6 +20,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/template.html",
     }),
+    new webpack.ContextReplacementPlugin(
+      /date-fns[/\\]locale/,
+      new RegExp(`(${locales.join("|")})\.js$`),
+    ),
   ],
   module: {
     rules: [
@@ -34,5 +40,10 @@ module.exports = {
         type: "asset/resource",
       },
     ],
+  },
+  resolve: {
+    alias: {
+      "date-fns-locale": path.dirname(require.resolve("date-fns/package.json")),
+    },
   },
 };
