@@ -30,13 +30,10 @@ class Task {
     }
 }
 
-// new Task("Do HomeWork", "Math and English", "11-10-2024", "High");
-// new Task("Clearance", "at home: kitchen, living room, and bedroom", "12-10-2024", "Mediocre");
-// new Task("Reading", "Harry Potter", "31-12-2024", "Low");
-
 new Task("Do HomeWork", "Math and English", format("11-10-2024", 'dd MMM yyyy'), "High");
 new Task("Clearance", "at home: kitchen, living room, and bedroom", format("10-12-2024", 'dd MMM yyyy'), "Mediocre");
 new Task("Reading", "Harry Potter", format("12-31-2024", 'dd MMM yyyy'), "Low");
+new Task("Call Nazar", "To boast how amazing I am", format(new Date, 'dd MMM yyyy'), "High");
 
 // console.log(Task.showTaskArray())
 
