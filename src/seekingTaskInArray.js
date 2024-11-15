@@ -1,8 +1,6 @@
 import {tasksArray} from "./addTask"
 export {pickingTaskFromArray}
 
-const taskCells = document.querySelectorAll(".task");
-
 function pickingTaskFromArray(task) {
     
     for (let item of tasksArray) {
@@ -14,7 +12,7 @@ function pickingTaskFromArray(task) {
         if( task.children[0].textContent === item.title && description === item.description &&
             date === `${item.dueDate}` && priority === item.priority) {
             let index = tasksArray.indexOf(item);
-            return {"item": item, "index": index};
+            return {"index": index};
         }
     }
 }

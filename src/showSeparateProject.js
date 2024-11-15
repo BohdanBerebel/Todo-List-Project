@@ -3,6 +3,7 @@ import {publishTask} from "./buildTaskDiv"
 import {addItemsToProjectsList, buildProjectPage} from "./showProjects"
 import {addTaskToProject} from "./createProject"
 import { format } from "date-fns";
+import {detectingTaskInProjectsArray} from "./seekingTaskInProjectsArray"
 export {addEventListenersToProjectList, buildProjectOnMainPage}
 
 
@@ -19,6 +20,8 @@ function buildProjectOnMainPage(index) {
     for (let i = 1; i < projectsArray[index].length; i++ ) {
         publishTask(projectsArray[index][i]);
     } 
+
+    addDeleteButton();
 
     if (projectsArray[index].length === 1) {
         const notification = document.createElement('p');
@@ -92,9 +95,12 @@ function buildProjectOnMainPage(index) {
         addNewTaskButton.textContent = "Add the task";
         addNewTaskDiv.appendChild(addNewTaskButton);
 
+        
         addNewTaskButton.addEventListener("click", (e) => {
+            if (inputArrays[0].value == "" || inputArrays[1].value  == "" || inputArrays[2].value == "") return alert("No, no, no... Try again")
             new addTaskToProject(projectsArray[index], inputArrays[0].value, inputArrays[1].value, format(inputArrays[2].valueAsDate, 'dd MMM yyyy'), select.value);
             buildProjectOnMainPage(index);
+            addItemsToProjectsList();
         })
 
     })
@@ -137,7 +143,28 @@ addNewProject.addEventListener("click", (e) => {
         new Projects(input.value);
         addItemsToProjectsList();
         buildProjectPage();
-        addEventListenersToProjectList();
     })
     
 })
+
+function addDeleteButton() {
+    const projectsArray = Projects.showProjects();
+    const taskCells = document.querySelectorAll(".task");
+    
+    for (let task of [...taskCells]) {
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = "Detele this task";
+        task.appendChild(deleteButton);
+        
+        deleteButton.addEventListener("click", (e) => {
+            const projectsArray = Projects.showProjects();
+            const taskToDelete = detectingTaskInProjectsArray(e.target.parentElement);
+            console.log(projectsArray)
+            projectsArray[taskToDelete["indexOfProject"]].splice(taskToDelete["indexOfTask"], 1);
+            console.log(projectsArray);
+            addItemsToProjectsList();
+            buildProjectOnMainPage(taskToDelete["indexOfProject"]);
+            addDeleteButton()
+        })
+    }
+}

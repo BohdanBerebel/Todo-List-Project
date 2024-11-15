@@ -3,6 +3,7 @@ import {addDeleteButton} from "./deleteTask";
 export {publishAllTasks, publishTask}
 
 const main = document.querySelector("main");
+const user = document.querySelector("#user-info:first-child");
 
 function meanHeader() {
     let tasksQuantity = tasksArray.length;
@@ -58,3 +59,7 @@ const publishAllTasks = function() {
     addDeleteButton();
     
 }
+
+user.addEventListener("click", (e) => {
+    publishAllTasks();
+})

@@ -1,7 +1,8 @@
 import {Projects} from "./createProject"
 import {publishAllTasks} from "./buildTaskDiv"
 import {addDeleteButton} from "./deleteTask";
-export {addItemsToProjectsList, buildProjectPage}
+import {addEventListenersToProjectList} from "./showSeparateProject"
+export {addItemsToProjectsList, buildProjectPage, publishProject}
 
 const projectsArray = Projects.showProjects();
 
@@ -25,6 +26,8 @@ const addItemsToProjectsList = function() {
         div.appendChild(numberOfTasks);
 
     })
+
+    addEventListenersToProjectList()
 }
 
 const buildProjectPage = function() {
@@ -37,24 +40,40 @@ const buildProjectPage = function() {
 
     projectsArray.forEach((element) => {
 
-        const div = document.createElement('div');
+        publishProject(element);
+    })
+    const backToTasksButton = document.createElement('button');
+    backToTasksButton.textContent = `Back to tasks`;
+    main.appendChild(backToTasksButton);
+
+    backToTasksButton.addEventListener("click", (e) => {
+        main.innerHTML = "";
+        publishAllTasks();
+    })
+
+}
+
+function publishProject(project){
+    const main = document.querySelector('main');
+
+    const div = document.createElement('div');
         main.appendChild(div);
         div.classList.add("projectBig");
 
         const projectTitle = document.createElement('h2');
-        projectTitle.textContent = element[0].projectTitle;
+        projectTitle.textContent = `Project: ${project[0].projectTitle}`;
         div.appendChild(projectTitle);
 
-        if(element[1] == undefined) {
+        if(project[1] == undefined) {
             const notification = document.createElement('p');
             notification.textContent = "No tasks yet";
             div.appendChild(notification);
             return
         }
 
-        if(element.length > 1) {
+        if(project.length > 1) {
 
-            element.forEach((obj, index) =>  {
+            project.forEach((obj, index) =>  {
                 
                 if(index === 0) return;
 
@@ -67,11 +86,11 @@ const buildProjectPage = function() {
                 task.appendChild(header);
         
                 const description = document.createElement('p');
-                description.textContent = obj.description;
+                description.textContent = `Description: ${obj.description}`;
                 task.appendChild(description);
         
                 const day = document.createElement('p');
-                day.textContent = obj.dueDate;
+                day.textContent = `Date: ${obj.dueDate}`;
                 task.appendChild(day);
         
                 const priority = document.createElement('p');
@@ -87,14 +106,4 @@ const buildProjectPage = function() {
                 }
             })
         }
-    })
-    const backToTasksButton = document.createElement('button');
-    backToTasksButton.textContent = `Back to tasks`;
-    main.appendChild(backToTasksButton);
-
-    backToTasksButton.addEventListener("click", (e) => {
-        main.innerHTML = "";
-        publishAllTasks();
-    })
-
 }
